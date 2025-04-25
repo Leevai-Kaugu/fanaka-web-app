@@ -1,72 +1,98 @@
-import Nav from '@/components/nav/page'
+'use client';
+
+import React, { JSX } from 'react';
+import Nav from '@/components/nav/page';
 import AgentLink from '@/components/agent_link/page';
 import Socials from '@/components/socials/page';
 import oops from '@/public/no idea-01.svg';
-import Image from "next/image";
-import background from "@/public/Nav bg-01.svg"
-import Scroll from "@/components/scroll/page";
+import background from '@/public/Nav bg-01.svg';
+import Image from 'next/image';
+import Scroll from '@/components/scroll/page';
 
-
-
-
-export default function Home() {
-
-  
+export default function Home(): JSX.Element {
   return (
-   <Scroll>
-      <div className='grid relative w-[100%] h-full'>         
+    <Scroll>
+      <div className="relative grid w-full h-full">
+        {/* Background Image */}
         <Image
-          src={background} // Home page background
-          alt="Hero image"
-          width={1100}
-          height={900}
-          className="col-start-1 row-start-1 w-[100%]"
+          src={background}
+          alt="Hero background"
+          layout="responsive"
+          className="col-start-1 row-start-1 w-full h-auto object-cover"
         />
-        <div className="flex w-[100%] flex-col col-start-1 row-start-1 z-1">
-          <Nav/>
-          <div >
-            <div className='w-[100%] col-start-1 row-start-1 z-1 justify-center mt-[20vh]'>
-                <div className='flex flex-col items-center justify-center'>
-                    <h1 className='text-[2vw] text-fp font-bold'>CAREERS</h1>
-                    <p className='text-white w-[40%] text-center'>Grow With Us ~ Discover opportunities to build something amazing, challenging, inspiring, and rewarding</p>
+
+        {/* Overlay Content */}
+        <div className="flex flex-col w-full col-start-1 row-start-1 z-10">
+          <Nav />
+
+          {/* Heading Section */}
+          <div className="flex flex-col items-center justify-center mt-[20vh] text-center px-4">
+            <h1 className="text-2xl md:text-4xl text-fp font-bold">CAREERS</h1>
+            <p className="text-white mt-2 max-w-xl">
+              Grow With Us ~ Discover opportunities to build something amazing, challenging, inspiring, and rewarding.
+            </p>
+          </div>
+
+          {/* Why Work With Us Section */}
+          <div className="flex flex-col items-center justify-center mt-[30vh] px-4 text-center">
+            <h2 className="text-xl md:text-2xl text-fp mb-6">Why work with us</h2>
+            <div className="flex flex-col md:flex-row gap-8 md:gap-[5vw] justify-center w-full max-w-6xl">
+              {[
+                {
+                  title: 'Make Real Impact',
+                  description:
+                    'At Fanaka, your work directly empowers small businesses to grow, create jobs, and strengthen communities.',
+                },
+                {
+                  title: 'Join a Supportive Team',
+                  description:
+                    'Fanaka is built on collaboration, respect, and shared success — you’ll be part of a passionate team that believes in making finance accessible and fair.',
+                },
+                {
+                  title: 'Grow With Purpose',
+                  description:
+                    'We’re committed to your professional development, offering mentorship, skills training, and opportunities to advance as you help entrepreneurs succeed.',
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="py-5 px-6 bg-flp text-white rounded-lg shadow w-full md:w-[30%]"
+                >
+                  <h3 className="text-fp font-bold mb-4">{item.title}</h3>
+                  <p>{item.description}</p>
                 </div>
+              ))}
             </div>
-            <div className='w-full flex justify-center flex-col items-center col-start-1 row-start-1 z-1 justify-center mt-[30vh]'>
-                <div className='text-[1.5rem] mb-[5vh] text-fp'>Why work with us</div>
-                    <div className='flex gap-[5vw] items-center justify-center text-center'>
-                        <div className='py-5 px-10 bg-flp text-white w-[20%] '>
-                            <h2 className="text-fp font-bold mb-[3vh]">Make Real Impact</h2>
-                            <p>At Fanaka, your work directly empowers small businesses to grow, create jobs, and strengthen communities</p>
-                        </div>
-                        <div className='py-5 px-10 bg-flp text-white w-[20%] '>
-                            <h2 className="text-fp font-bold mb-[3vh]">Join a Supportive Team</h2>
-                            <p>Fanaka is built on collaboration, respect, and shared success — you'll be part of a passionate team that believes in making finance accessible and fair.</p>
-                        </div>
-                        <div className='py-5 px-10 bg-flp text-white w-[20%] '>
-                            <h2 className="text-fp font-bold mb-[3vh]">Grow With Purpose</h2>
-                            <p>We’re committed to your professional development, offering mentorship, skills training, and opportunities to advance as you help entrepreneurs succeed.</p>
-                        </div>
-                    </div>
-                    <div className='text-[1.5rem] mt-[5%] text-fp'>
-                        <Image
-                        src={oops} // Oooops image for this section
-                        alt="Hero image"
-                        width={1100}
-                        height={900}
-                        className="col-start-1 row-start-1 w-[100%] cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out" 
-                        />
-                    </div>
-                    <div className='mt-[10vh] w-[60%] text-center'>
-                        <p>Ooops! Currently there are no vacant opportunities availble. Don’t worry, we keep updating our social media pages when vacancies are available. Check us out!</p>
-                    </div>
-                    <div className='w-[10%]'>
-                        <Socials/>
-                    </div>
-                    <AgentLink/>
-                </div>
-            </div>                                                    
+
+            {/* Oops Image */}
+            <div className="mt-[5vh] w-full max-w-5xl">
+              <Image
+                src={oops}
+                alt="Oops illustration"
+                layout="responsive"
+                className="cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+              />
+            </div>
+
+            {/* No Jobs Text */}
+            <div className="mt-10 w-full max-w-xl text-white">
+              <p>
+                Ooops! Currently there are no vacant opportunities available. Don’t worry, we keep updating our social media pages when vacancies are available. Check us out!
+              </p>
+            </div>
+
+            {/* Socials */}
+            <div className="mt-6">
+              <Socials />
+            </div>
+
+            {/* Agent CTA */}
+            <div className="mt-12">
+              <AgentLink />
+            </div>
+          </div>
         </div>
-    </div>
-   </Scroll>
+      </div>
+    </Scroll>
   );
 }
