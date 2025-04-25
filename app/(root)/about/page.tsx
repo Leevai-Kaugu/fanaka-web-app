@@ -1,4 +1,4 @@
-import Nav from "@/components/nav/page";
+import Nav from '@/components/nav/page';
 import We_do from '@/components/our_values/page'
 import Our_team from '@/components/our_team/page'
 import Image from "next/image";

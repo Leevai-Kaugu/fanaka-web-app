@@ -1,4 +1,4 @@
-import Nav from "@/components/nav/page";
+import Nav from '@/components/nav/page'
 import AgentLink from '@/components/agent_link/page';
 import Socials from '@/components/socials/page';
 import oops from '@/public/no idea-01.svg';

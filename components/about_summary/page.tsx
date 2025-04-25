@@ -8,7 +8,7 @@ import Approach_summary from '../approach_toggle/page'
 export default function Summary(){
     return(
         <div className='flex flex-col w-full items-center'>
-          <div className="flex mt-[20vh] w-[100%] justify-around">
+          <div className="flex flex-col md:flex-row mt-[20vh] w-[100%] justify-around">
                 <div className="w-[30%]">
                   <Image
                     src={problemo}// public folder path
@@ -32,7 +32,7 @@ export default function Summary(){
                   </ul>
                 </div>
           </div>
-          <div className="flex mt-[20vh] w-[100%] justify-around items-center">
+          <div className="flex flex-col md:flex-row mt-[20vh] w-[100%] justify-around items-center">
             <Image
                 src={businessLdy}// public folder path
                 alt="Fanaka client C.E.O Interacting with a client"

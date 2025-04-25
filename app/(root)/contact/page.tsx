@@ -1,4 +1,4 @@
-import Nav from "@/components/nav/page";
+import Nav from '@/components/nav/page'
 import green from "@/public/green house-01.svg"
 import Image from "next/image";
 import background from "@/public/Nav bg-01.svg"
