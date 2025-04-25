@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -31,20 +32,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="h-[100vh] flex flex-col justify-between">
-          {}
+        <div className="h-fit flex flex-col justify-between">
           {children}
-          <div className="bg-foreground text-background flex w-[100%] justify-between items-center p-[20px]">
-          <p>Copyright © {currentYear} Fanaka Tech. All rights reserved.</p>
-          <div>
-            <ul className="flex">
-              <li className="m-[10px]"><Link href="/">Home</Link></li>
-              <li className="m-[10px]"><Link href="about">About</Link></li>
-              <li className="m-[10px]"><Link href="contact">Contact</Link></li>
-              <li className="m-[10px]"><Link href="career">Career</Link></li>
-              <li className="m-[10px]"><Link href="lms">LMS Konnekt</Link></li>
-            </ul>
-          </div>
+          <div className="bg-foreground text-background flex w-full justify-between items-center p-[20px] mt-[35vh]">
+            <p>Copyright © {currentYear} Fanaka Tech. All rights reserved.</p>
+            <div>
+              <ul className="flex">
+                <li className="m-[10px] hover:text-fp transition-all duration-300 ease-in"><Link href="/">Home</Link></li>
+                <li className="m-[10px] hover:text-fp transition-all duration-300 ease-in"><Link href="partners">Partners</Link></li>
+                <li className="m-[10px] hover:text-fp transition-all duration-300 ease-in"><Link href="about">About</Link></li>
+                <li className="m-[10px] hover:text-fp transition-all duration-300 ease-in"><Link href="contact">Contact</Link></li>
+                <li className="m-[10px] hover:text-fp transition-all duration-300 ease-in"><Link href="career">Careers</Link></li>
+                <li className="m-[10px] hover:text-fp transition-all duration-300 ease-in"><Link href="contact">Contact Us</Link></li>
+              </ul>
+            </div>
         </div>
         </div>
       </body>

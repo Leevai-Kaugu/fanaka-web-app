@@ -1,13 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default function users() {
+export default function pages() {
     return <div>
         <ul>
-            <li><Link href="/(pages)/[name]/1">Home</Link></li>
-            <li><Link href="/(pages)/[name]/2">About</Link></li>
-            <li><Link href="/(pages)/[name]/3">Contact</Link></li>
-            <li><Link href="/(pages)/[name]/4">Career</Link></li>
+            <li><Link href="/(pages)/[name]">Home</Link></li>
+            <li><Link href="/(pages)/[name]">Partners</Link></li>
+            <li><Link href="/(pages)/[name]">About</Link></li>
+            <li><Link href="/(pages)/[name]">Contact</Link></li>
+            <li><Link href="/(pages)/[name]">Career</Link></li>
         </ul>
     </div>
 }

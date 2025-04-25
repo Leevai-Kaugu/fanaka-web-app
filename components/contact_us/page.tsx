@@ -39,7 +39,7 @@ export default function Contact_us() {
           opacity: isHovered ? 1 : 0,
         }}
       />
-      <span className="relative z-10">CONTACT US</span>
+      <span className="relative z-10">LEARN MORE</span>
     </button>
   );
 }

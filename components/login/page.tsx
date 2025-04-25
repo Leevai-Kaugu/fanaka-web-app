@@ -31,7 +31,7 @@ export default function     Login() {
       
     >
       <span
-        className="absolute w-40 h-40 rounded-full bg-background opacity-50 pointer-events-none transform -translate-x-1/2 -translate-y-1/2 transition-all duration-800 group-hover:scale-150 z-0 ease-in"
+        className="absolute w-40 h-40 rounded-full bg-background opacity-50 pointer-events-none transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 group-hover:scale-150 z-0 ease-in"
         style={{
           left: coords.x,
           top: coords.y,
