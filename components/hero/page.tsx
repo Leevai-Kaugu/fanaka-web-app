@@ -2,11 +2,10 @@
 'use client'
 import React from 'react'
 import Contact_us from "@/components/contact_us/page";
-import Scroll from '../scroll/page';
 
 export default function Hero(){
     return(
-        <div className='md:block flex flex-col items-center md:items-center '>
+        <div className='md:block flex flex-col items-center md:items-center mt-[10vh] md:mt-[0px] px-[10vw] md:px-[0px]'>
             <h1 className="text-[5vw] text-white font-bold leading-none" 
             style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.15)' }}>FANAKA</h1>
             <h2 className="text-white text-[2.8vw] leading-none"

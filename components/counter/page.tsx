@@ -25,7 +25,7 @@ export default function Counter({ from = 0, to = 1000, duration = 2 }) {
   }, [from, to, duration]);
 
   return (
-    <motion.div className="text-[2.5vw] text-center">
+    <motion.div className="text-[5vw] md:text-[2.5vw] text-center">
       {count}
     </motion.div>
   );
