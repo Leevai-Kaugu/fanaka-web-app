@@ -19,7 +19,7 @@ export default function Home() {
           alt="Hero image"
           width={1100}
           height={900}
-          className="col-start-1 row-start-1 w-[100%]"
+          className="col-start-1 row-start-1 w-[100%] object-cover"
         />
         <div className="flex w-[100%] flex-col col-start-1 row-start-1 z-1">
           <Nav/>

@@ -8,14 +8,14 @@ import Approach_summary from '../approach_toggle/page'
 export default function Summary(){
     return(
         <div className='flex flex-col w-full items-center'>
-          <div className="flex flex-col md:flex-row mt-[20vh] w-[100%] justify-around">
-                <div className="w-full md:w-[30%]">
+          <div className="flex flex-col md:flex-row md:mt-[20vh] mt-[10vh] w-[100%] justify-around">
+                <div className="w-full flex justify-center md:w-[30%]">
                   <Image
                     src={problemo}// public folder path
                     alt="Fanaka client C.E.O Interacting with a client"
                     width={1100}
                     height={900}
-                    className="col-start-1 row-start-1 w-full h-full object-cover"
+                    className="col-start-1 w-1/2 row-start-1 md:w-full h-full object-cover"
                   ></Image>
                 </div>
                 <div className="w-full md:w-[60%] text-foreground text-center">
