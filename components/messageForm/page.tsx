@@ -6,7 +6,7 @@ export default function MessageForm() {
     return (
         <div>
             <form action="submit">
-                <p className='text-fp uppercase font-bold'>Get in Touch</p>
+                <p className='text-fp uppercase font-bold text-center md:text-start md:text-[2vw] text-[5vw]'>Get in Touch</p>
                 <div className="flex flex-col gap-4 w-full h-full">
                     <label htmlFor="name" className='text-white'>Name</label>
                     <input type="text" id="name" name="name" required className="border-b-2 border-white focus:outline-none focus:border-fp px-2" />

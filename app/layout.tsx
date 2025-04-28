@@ -40,9 +40,8 @@ export default function RootLayout({
                 <li className="m-[10px] hover:text-fp transition-all duration-300 ease-in"><Link href="/">Home</Link></li>
                 <li className="m-[10px] hover:text-fp transition-all duration-300 ease-in"><Link href="partners">Partners</Link></li>
                 <li className="m-[10px] hover:text-fp transition-all duration-300 ease-in"><Link href="about">About</Link></li>
-                <li className="m-[10px] hover:text-fp transition-all duration-300 ease-in"><Link href="contact">Contact</Link></li>
                 <li className="m-[10px] hover:text-fp transition-all duration-300 ease-in"><Link href="career">Careers</Link></li>
-                <li className="m-[10px] hover:text-fp transition-all duration-300 ease-in"><Link href="contact">Contact Us</Link></li>
+                <li className="m-[10px] hover:text-fp transition-all duration-300 ease-in"><Link href="contact">Contact</Link></li>
               </ul>
             </div>
         </div>

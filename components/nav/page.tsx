@@ -82,10 +82,9 @@ export default function Navbar() {
               </button>
               <li><Link href="/" onClick={() => setIsOpen(false)}>Home</Link></li>
               <li><Link href="/about" onClick={() => setIsOpen(false)}>About</Link></li>
-              <li><Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
               <li><Link href="/partners" onClick={() => setIsOpen(false)}>Partners</Link></li>
               <li><Link href="/career" onClick={() => setIsOpen(false)}>Careers</Link></li>
-              <li><Link href="/contact" onClick={() => setIsOpen(false)}>Contact Us</Link></li>
+              <li><Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
             </motion.div>
           </>
         )}

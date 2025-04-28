@@ -92,7 +92,7 @@ function Card({
   if (item.highlight) {
     return (
       <div className="text-center px-6 py-8">
-        <h3 className="text-[2vw] text-fp">{item.title}</h3>
+        <h3 className="md:text-[2vw] text-[5.4vw] text-fp">{item.title}</h3>
       </div>
     );
   }

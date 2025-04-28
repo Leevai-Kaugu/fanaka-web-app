@@ -17,8 +17,7 @@ export default function Home(): JSX.Element {
         <Image
           src={background}
           alt="Hero background"
-          layout="responsive"
-          className="col-start-1 row-start-1 w-full h-auto object-cover"
+          className="col-start-1 row-start-1 w-full h-auto object-cover min-h-[80vh]"
         />
 
         {/* Overlay Content */}
@@ -26,16 +25,16 @@ export default function Home(): JSX.Element {
           <Nav />
 
           {/* Heading Section */}
-          <div className="flex flex-col items-center justify-center mt-[20vh] text-center px-4">
-            <h1 className="text-2xl md:text-4xl text-fp font-bold">CAREERS</h1>
-            <p className="text-white mt-2 max-w-xl">
+          <div className="flex flex-col items-center justify-center mt-[5vh] md:mt-[20vh] text-center px-4">
+            <h1 className="text-[7vw] md:text-[3vw] text-fp font-bold">CAREERS</h1>
+            <p className="text-pg mt-2 md:w-[40%] w-full">
               Grow With Us ~ Discover opportunities to build something amazing, challenging, inspiring, and rewarding.
             </p>
           </div>
 
           {/* Why Work With Us Section */}
-          <div className="flex flex-col items-center justify-center mt-[30vh] px-4 text-center">
-            <h2 className="text-xl md:text-2xl text-fp mb-6">Why work with us</h2>
+          <div className="flex flex-col items-center justify-center md:mt-[20vh] mt-[10vh] px-4 text-center">
+            <h2 className="text-xl md:text-2xl text-fp md:mb-6 mb-3">Why work with us</h2>
             <div className="flex flex-col md:flex-row gap-8 md:gap-[5vw] justify-center w-full max-w-6xl">
               {[
                 {
@@ -65,11 +64,10 @@ export default function Home(): JSX.Element {
             </div>
 
             {/* Oops Image */}
-            <div className="mt-[5vh] w-full max-w-5xl">
+            <div className="mt-[5vh] w-full max-w-5xl flex items-center justify-center">
               <Image
                 src={oops}
                 alt="Oops illustration"
-                layout="responsive"
                 className="cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
               />
             </div>
@@ -82,7 +80,7 @@ export default function Home(): JSX.Element {
             </div>
 
             {/* Socials */}
-            <div className="mt-6">
+            <div className="md:mt-6 mt-[0px]">
               <Socials />
             </div>
 

@@ -6,9 +6,9 @@ import deno from '@/public/DENO.png'
 
 export default function Our_team() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 w-[70%]">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 w-[70%] place-items-center">
         <div className="group w-50 h-50 [perspective:1000px] cursor-pointer">
-            <div className="relative w-full h-full transition-transform duration-700             [transform-style:preserve-3d] group-hover:[transform:rotateX(180deg)] shadow-xl">
+            <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateX(180deg)] shadow-xl">
                 {/* Front Side */}
                 <div className="absolute w-full h-full backface-hidden overflow-hidden">
                     <Image
