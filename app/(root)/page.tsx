@@ -1,7 +1,7 @@
+'use client";'
 import Nav from "@/components/nav/page";
 import Hero from "@/components/hero/page";
 import Image from "next/image";
-import background from "@/public/front-view-woman-carrying-harvest.jpg";
 import Summary from "@/components/about_summary/page";
 import Scroll from "@/components/scroll/page";
 import Metrics from "@/components/metrics/page";
@@ -12,7 +12,7 @@ export default function Home() {
       <div className="grid relative w-full h-full">
         {/* Responsive Background Image */}
         <Image
-          src={background}
+          src='/front-view-woman-carrying-harvest.jpg'
           alt="Woman carrying harvest"
           width={1920}
           height={1080}

@@ -3,8 +3,8 @@
 import Nav from '@/components/nav/page';
 import Values from '@/components/our_values/page';
 import OurTeam from '@/components/our_team/page';
+import Impact from '@/components/impact/page';
 import Image from 'next/image';
-import background from '@/public/Nav bg-01.svg';
 import Scroll from '@/components/scroll/page';
 
 export default function AboutPage() {
@@ -13,9 +13,10 @@ export default function AboutPage() {
       <div className="relative grid w-full min-h-screen">
         {/* Background Image */}
         <Image
-          src={background}
+          src='/Nav bg-01.svg'
           alt="Background Image"
-          priority
+          width={1100}
+          height={900}
           className="object-cover col-start-1 row-start-1 w-full min-h-[80vh]"
         />
 
@@ -24,7 +25,7 @@ export default function AboutPage() {
           <Nav />
 
           {/* About Section */}
-          <section className="flex flex-col items-center justify-center text-center mt-24 md:mt-40 px-6 md:px-0">
+          <section className="flex flex-col items-center justify-center text-center mt-24 md:mt-20 px-6 md:px-0">
             <h1 className="text-[7vw] md:text-[3vw] text-white font-bold md:leading-tight">ABOUT US</h1>
             <p className="text-fp text-[6vw] md:text-[2vw] md:mt-3">Vision Statement</p>
             <p className="text-fg md:text-[1.2vw] text-[5vw] md:text-base w-full md:w-[40%] md:mt-6 mt-2">
@@ -33,10 +34,15 @@ export default function AboutPage() {
           </section>
 
           {/* Our Values Section */}
-          <section className="px-6 md:px-16 md:mt-20 mt-5">
+          <section className="px-6 md:px-16 md:mt-30 mt-5">
             <Values />
           </section>
-
+        
+            {/* Impact Section */}  
+            <div>
+              <h2 className="text-[6vw] md:text-[2rem] text-fp font-semibold text-center mt-24 md:mt-10 px-6 md:px-16">Our Impact</h2>
+              <Impact />
+            </div>
           {/* Our Team Section */}
           <section className="flex flex-col items-center mt-24 md:mt-32 px-6 md:px-16">
             <h2 className="text-[6vw] md:text-[2rem] mb-10 text-fp font-semibold">Our Team</h2>

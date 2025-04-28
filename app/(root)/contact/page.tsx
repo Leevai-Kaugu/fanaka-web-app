@@ -1,15 +1,6 @@
 import Nav from '@/components/nav/page'
-import green from "@/public/green house-01.svg"
 import Image from "next/image";
-import background from "@/public/Nav bg-01.svg"
-import apex from "@/public/Apex foundry.png"
 import Scroll from "@/components/scroll/page";
-import learn from '@/public/LearnInk logo.png'
-import cellulant from '@/public/cellulant.png'
-import axesfin from '@/public/axesfin.png'
-import bestlife from '@/public/Bestlife-Logo.png'
-import digital from '@/public/digital africa.png'
-import Metrics from "@/components/metrics/page";
 import { FaPhoneAlt, FaClock } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
@@ -24,7 +15,7 @@ export default function Home() {
    <Scroll>
       <div className='grid relative w-[100%] h-full items-center'>         
         <Image
-          src={background} // Home page background
+          src='/Nav bg-01.svg' // Home page background
           alt="Hero image"
           width={1100}
           height={900}
