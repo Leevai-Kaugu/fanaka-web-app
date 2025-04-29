@@ -1,40 +1,36 @@
-import Nav from "@/components/nav/page";
-import Hero from "@/components/hero/page";
-import Image from "next/image";
-import Summary from "@/components/about_summary/page";
-import Scroll from "@/components/scroll/page";
-import Metrics from "@/components/metrics/page";
+// 'use client'; // Do NOT use this at the top unless required
 
+import Nav from '@/components/nav/page';
+// import Scroll from '@/components/scroll/page'; // 👈 Temporarily disable
+import Image from "next/image";
+import background from "@/public/Nav bg-01.svg"; // ✅ static import — keep
+import We_do from '@/components/our_values/page';
+// import Our_team from '@/components/our_team/page'; // 👈 Temporarily disable
 
 export default function Home() {
   return (
-    <div className="grid relative w-full h-full">
-        {/* Responsive Background Image */}
+    // <Scroll> 👈 Temporarily disabled
+      <div className='grid relative w-full h-full'>
         <Image
-          src='/front-view-woman-carrying-harvest.jpg'
-          alt="Woman carrying harvest"
+          src={background}
+          alt="Hero image"
           width={1100}
           height={900}
-          priority
-          className="col-start-1 row-start-1 w-full h-screen object-cover filter brightness-80 absolute top-0 left-0 z-0"
+          className="col-start-1 row-start-1 w-full object-cover"
         />
-
-        {/* Content */}
-        <div className="flex w-full flex-col col-start-1 row-start-1 z-10 relative">
+        <div className="flex flex-col col-start-1 row-start-1 z-1 w-full">
           <Nav />
-
-          <div className="flex flex-col my-0 md:my-[10%] md:ml-[5%] p-0 md:p-10">
-            <Hero />
+          <div className='mt-10 flex justify-center items-center flex-col'>
+            <h1 className='text-2xl text-white font-bold'>ABOUT US</h1>
+            <p className='text-lg text-fp'>Vision Statement</p>
+            <p className='text-white text-center w-3/4'>
+              A Zambia where every enterprise, no matter how small, has the financial tools, knowledge, and network to thrive
+            </p>
           </div>
-
-          <div className="flex md:w-full justify-around mt-[40vh] md:mt-0">
-          <Summary />
-          </div>
-
-          <div className="mt-[20vh]">
-          <Metrics />
-          </div>
+          <We_do /> {/* ✅ still enabled */}
+          {/* <Our_team /> 👈 temporarily disabled */}
         </div>
       </div>
+    // </Scroll>
   );
 }
