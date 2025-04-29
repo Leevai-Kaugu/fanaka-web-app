@@ -39,7 +39,7 @@ export default function AboutPage() {
           </section>
         
             {/* Impact Section */}  
-            <div>
+            <div className='w-full'>
               <h2 className="text-[6vw] md:text-[2rem] text-fp font-semibold text-center mt-24 md:mt-10 px-6 md:px-16">Our Impact</h2>
               <Impact />
             </div>
