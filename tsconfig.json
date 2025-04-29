@@ -18,10 +18,13 @@
         "name": "next"
       }
     ],
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": [
     "node_modules",
-    "app/(root)/(nav_pages)" // Excluded directory
+    "app/(root)/(nav_pages)/**" // Excluded directory and its contents
   ]
 }
