@@ -8,7 +8,7 @@ import Metrics from "@/components/metrics/page";
 
 export default function Home() {
   return (
-    <div className="grid relative w-full h-full">
+    <div className="grid relative w-full h-full bg-white">
         {/* Responsive Background Image */}
         <Image
           src='/front-view-woman-carrying-harvest.jpg'
