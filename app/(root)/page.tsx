@@ -5,6 +5,8 @@ import Image from "next/image";
 import Summary from "@/components/about_summary/page";
 import Scroll from "@/components/scroll/page";
 import Metrics from "@/components/metrics/page";
+export const dynamic = 'force-dynamic';
+
 
 export default function Home() {
   return (
