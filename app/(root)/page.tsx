@@ -8,8 +8,7 @@ import Metrics from "@/components/metrics/page";
 
 export default function Home() {
   return (
-    <Scroll>
-      <div className="grid relative w-full h-full">
+    <div className="grid relative w-full h-full">
         {/* Responsive Background Image */}
         <Image
           src='/front-view-woman-carrying-harvest.jpg'
@@ -41,6 +40,5 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </Scroll>
   );
 }
