@@ -1,11 +1,9 @@
-'use client";'
 import Nav from "@/components/nav/page";
 import Hero from "@/components/hero/page";
 import Image from "next/image";
 import Summary from "@/components/about_summary/page";
 import Scroll from "@/components/scroll/page";
 import Metrics from "@/components/metrics/page";
-export const dynamic = 'force-dynamic';
 
 
 export default function Home() {
@@ -15,8 +13,8 @@ export default function Home() {
         <Image
           src='/front-view-woman-carrying-harvest.jpg'
           alt="Woman carrying harvest"
-          width={1920}
-          height={1080}
+          width={1100}
+          height={900}
           priority
           className="col-start-1 row-start-1 w-full h-screen object-cover filter brightness-80 absolute top-0 left-0 z-0"
         />
@@ -30,15 +28,11 @@ export default function Home() {
           </div>
 
           <div className="flex md:w-full justify-around mt-[40vh] md:mt-0">
-            <Scroll>
-              <Summary />
-            </Scroll>
+          <Summary />
           </div>
 
           <div className="mt-[20vh]">
-            <Scroll>
-              <Metrics />
-            </Scroll>
+          <Metrics />
           </div>
         </div>
       </div>

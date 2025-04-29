@@ -15,7 +15,7 @@ export default function Impact() {
         onClick={toggleOpen}
         className="w-full flex items-center justify-between text-left"
       >
-        <span className="font-semibold text-lg text-fp">{isOpen ? 'Close' : 'Open'} full evaluation</span>
+        <span className="font-semibold text-lg text-fp">Click here to {isOpen ? 'Close' : 'Open'} full impact evaluation and monitering metrics</span>
         {isOpen ? <IoIosArrowDropup size={24} className='text-fp' /> : <IoIosArrowDropdown size={24} className='text-fp' />}
       </button>
 
