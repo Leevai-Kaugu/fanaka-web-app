@@ -31,7 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="h-fit flex flex-col justify-between">
+        <div className="h-fit flex flex-col justify-between bg-white">
           {children}
           <div className="bg-foreground text-background flex md:flex-row flex-col-reverse w-full justify-between items-center p-[20px] mt-[35vh]">
             <p className="w-full md:w-1/2 text-center md:text-start mt-10 md:mt-[0px]">Copyright © {currentYear} Fanaka Tech. All rights reserved.</p>

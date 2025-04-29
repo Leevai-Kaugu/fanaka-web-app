@@ -10,7 +10,7 @@ import Scroll from '@/components/scroll/page';
 export default function AboutPage() {
   return (
     <Scroll>
-      <div className="relative grid w-full min-h-screen">
+      <div className="bg-white relative grid w-full min-h-screen">
         {/* Background Image */}
         <Image
           src='/Nav bg-01.svg'
