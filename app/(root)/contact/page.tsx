@@ -19,11 +19,11 @@ export default function Home() {
           alt="Hero image"
           width={1100}
           height={900}
-          className="col-start-1 row-start-1 w-[100%] min-h-[80vh] object-cover"
+          className="col-start-1 row-start-1 w-full min-h-full md:h-full object-cover"
         />
         <div className="flex w-[100%] flex-col col-start-1 row-start-1 z-1">
           <Nav/>
-          <div className='col-start-1 row-start-1 z-1 w-full sel-f-center flex justify-center md:mt-[25vh] mt-[10vh]'>
+          <div className='col-start-1 row-start-1 z-1 w-full flex justify-center md:mt-[25vh] mt-[10vh]'>
                 <div className='w-[90%] md:w-[80%] h-fit bg-flp p-10 flex' style={{ boxShadow: '0 8px 50px rgba(0,0,0,0.2)' }}>
                     <div className='flex md:flex-row flex-col w-full justify-around items-center'>
                         <div className='md:w-[40%] w-full md:text-start text-center'>

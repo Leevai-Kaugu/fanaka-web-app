@@ -25,7 +25,7 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center mt-[10vh]">
             <div className="flex flex-col md:flex-row mb-[5vh] items-center justify-center">
                 <div className="md:w-[40%] w-[90%] md:text-start text-center">
-                    <h2 className="text-white text-[7vw] md:text-[2.5vw] uppercase cursor-pointer hover:scale-105 transition-transform duration-300 md:mb-[0px] mb-3">Partner With Us</h2>
+                    <h2 className="text-fp text-[7vw] md:text-[2.5vw] uppercase cursor-pointer hover:scale-105 transition-transform duration-300 md:mb-[0px] mb-3">Partner With Us</h2>
                     <p className="w-full text-fg cursor-pointer hover:scale-105 transition-transform duration-300">At Fanaka, our vision is to revolutionize financial inclusion in Zambia and beyond, providing micro and small enterprises (MSMEs) with the tools and support they need to thrive. We aim to empower these enterprises by offering a holistic financial ecosystem, including financial literacy training, digital lending, and insurance linkages.</p>
                 </div>
                 <Image
@@ -39,7 +39,7 @@ export default function Home() {
           </div>
           <Scroll>
             <div className="flex h-auto justify-around mt-[10vh] flex-col items-center">
-              <h1 className="uppercase md:text-[2vw] text-[5vw]">Our Partners</h1>
+              <h1 className="uppercase md:text-[2vw] text-[5vw] text-fp">Our Partners</h1>
               <div className="w-full bg-flp p-10 flex flex-col md:flex-row w-[100%] mt-[5vh] gap-5 items-center justify-center">
                 <Image
                     src='/LearnInk logo.png'
