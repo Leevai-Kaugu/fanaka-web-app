@@ -1,5 +1,6 @@
 
 "use client";
+import Link from 'next/link';
 
 import { useState } from "react";
 
@@ -39,7 +40,7 @@ export default function     Login() {
           opacity: isHovered ? 1 : 0,
         }}
       />
-      <span className="relative z-10">LOGIN</span>
+      <Link href='career'><span className="relative z-10">Join the Team</span></Link>
     </button>
   );
 }

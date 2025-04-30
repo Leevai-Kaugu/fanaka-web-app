@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoMdClose } from "react-icons/io";
-import logo from '@/public/Fanaka logo final-01.svg'
 import Image from 'next/image';
 
 export default function Navbar() {
@@ -20,10 +19,10 @@ export default function Navbar() {
   }, [isOpen]);
 
   return (
-    <nav className=" border-b border-background shadow-md px-4 py-5  flex justify-between items-center relative z-50">
+    <nav className=" border-b border-white px-4 py-5 flex justify-between items-center relative z-50">
       <div className="text-xl ml-10 font-bold">
         <Link href="/"><Image
-                            src={logo} // public folder path
+                            src='/Fanaka logo final-01.svg' // public folder path
                             alt="Fanaka logo"
                             width={1100}
                             height={900}
@@ -44,11 +43,45 @@ export default function Navbar() {
       {/* Desktop Menu */}
     <ul className='hidden md:flex w-[50%] text-background justify-around items-center text-[1.3vw]'>
         <div className='flex w-[60%] justify-between'>
-            <li className=""><Link href="/" className='py-[100%] hover:text-fp transition-all duration-300 ease-in'>Home</Link></li>
-                        <li className=""><Link href="partners" className='py-[100%] hover:text-fp transition-all duration-300 ease-in'>Partners</Link></li>
-                        <li className=""><Link href="about" className='py-[100%] hover:text-fp transition-all duration-300 ease-in'>About</Link></li>
-                        <li className=""><Link href="career" className='py-[100%] hover:text-fp transition-all duration-300 ease-in'>Careers</Link></li>
-                        <li className=""><Link href="contact" className='py-[100%] hover:text-fp transition-all duration-300 ease-in'>Contact Us</Link>
+            <li className="group relative">
+              <Link href="/" className='py-[100%] hover:text-fp transition-all duration-300'>Home</Link>
+              <span className="absolute bottom-0 left-0 h-[2px] w-full bg-fp
+                        transform scale-x-0 origin-right
+                        transition-transform duration-300 ease-in
+                        group-hover:scale-x-100 group-hover:origin-left"
+                        />
+            </li>
+            <li className="group relative">
+              <Link href="partners" className='py-[100%] hover:text-fp transition-all duration-300'>Partners</Link>
+              <span className="absolute bottom-0 left-0 h-[2px] w-full bg-fp
+                        transform scale-x-0 origin-right
+                        transition-transform duration-300 ease-in
+                        group-hover:scale-x-100 group-hover:origin-left"
+                        />
+            </li>
+            <li className="group relative">
+              <Link href="about" className='py-[100%] hover:text-fp transition-all duration-300 ease-in'>About</Link>
+              <span className="absolute bottom-0 left-0 h-[2px] w-full bg-fp
+                        transform scale-x-0 origin-right
+                        transition-transform duration-300 ease-in
+                        group-hover:scale-x-100 group-hover:origin-left"
+                        />
+            </li>
+            <li className="group relative">
+              <Link href="career" className='py-[100%] hover:text-fp transition-all duration-300 ease-in'>Careers</Link>
+              <span className="absolute bottom-0 left-0 h-[2px] w-full bg-fp
+                        transform scale-x-0 origin-right
+                        transition-transform duration-300 ease-in
+                        group-hover:scale-x-100 group-hover:origin-left"
+                        />
+            </li>
+            <li className="group relative">
+              <Link href="contact" className='py-[100%] hover:text-fp transition-all duration-300 ease-in'>Contact Us</Link>
+              <span className="absolute bottom-0 left-0 h-[2px] w-full bg-fp
+                        transform scale-x-0 origin-right
+                        transition-transform duration-300 ease-in
+                        group-hover:scale-x-100 group-hover:origin-left"
+                        />
             </li>
         </div> 
         <Login/>          
