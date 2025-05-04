@@ -87,7 +87,7 @@ export default function ImpactTable() {
   ];
 
   return (
-    <div className="overflow-x-auto mt-10 w-full px-4">
+    <div className="overflow-x-auto mt-10 w-full">
       <div className="inline-block min-w-full rounded-lg shadow-lg overflow-hidden">
         <table className="min-w-full table-auto">
           <thead className="bg-fp text-white">

@@ -1,10 +1,8 @@
 'use client';
 
 import Nav from '@/components/nav/page';
-import Values from '@/components/our_values/page';
 import ImpactTable from '@/components/impact_table/page';
 import OurTeam from '@/components/our_team/page';
-import Impact from '@/components/impact/page';
 import Image from 'next/image';
 import Scroll from '@/components/scroll/page';
 
@@ -29,7 +27,7 @@ export default function AboutPage() {
           <section className="flex flex-col items-center justify-center text-center mt-24 md:mt-20 px-6 md:px-0">
             <h1 className="text-[7vw] md:text-[3vw] text-white font-bold md:leading-tight">ABOUT US</h1>
             <p className="text-fp text-[6vw] md:text-[2vw] md:mt-3">Vision Statement</p>
-            <p className="text-fg md:text-[1.2vw] text-[3vw] w-full md:w-[40%] md:mt-6 mt-2">
+            <p className="text-fg lg:text-[1.2vw] md:text-[2.2vw] text-[4vw] w-full md:w-[40%] md:mt-6 mt-2">
               A Zambia where every enterprise, no matter how small, has the financial tools, knowledge, and network to thrive.
             </p>
           </section>
@@ -42,7 +40,7 @@ export default function AboutPage() {
             {/* Impact Section */}  
             <div className='w-full flex flex-col items-center mt-7 md:mt-20'>
               <h2 className="text-[6vw] md:text-[2rem] text-fp font-semibold text-center mt-24 md:mt-10 px-6 md:px-16">Our Impact</h2>
-              <div className='w-full md:w-[80%]'>
+              <div className='w-full sm:w-[80%]'>
                 <ImpactTable />
               </div>
             </div>

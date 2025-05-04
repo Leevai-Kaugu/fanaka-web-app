@@ -1,9 +1,7 @@
 import Nav from '@/components/nav/page'
 import Image from "next/image";
 import Scroll from "@/components/scroll/page";
-
-
-import Metrics from "@/components/metrics/page";
+import PartnerForm from "@/components/partner_form/page";
 
 
 
@@ -88,7 +86,7 @@ export default function Home() {
           </Scroll>                                                      
           <Scroll>
             <div className="mt-[20vh]">
-              <Metrics/>
+              <PartnerForm/>
             </div>
           </Scroll>
         </div>
