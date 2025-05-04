@@ -5,7 +5,7 @@ import Contact_us from "@/components/contact_us/page";
 
 export default function Hero(){
     return(
-        <div className='md:block flex flex-col items-center md:items-center mt-[10vh] md:mt-[0px] px-[10vw] md:px-[0px]'>
+        <div className='md:block flex flex-col items-center md:items-center mt-[20vh] md:mt-[10vh] px-[10vw] md:px-[0px]'>
             <h1 className="text-[15vw] md:text-[8vw] text-white font-bold leading-none" 
             style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.15)' }}>FANAKA</h1>
             <h2 className="text-white text-[8vw] md:text-[3vw] leading-none"
