@@ -24,8 +24,8 @@ export default function PartnerApplicationForm() {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
-      <h2 className="text-2xl font-bold text-indigo-800 mb-1">Become a partner</h2>
-      <p className="text-sm text-gray-500 mb-6">Tell us more about your business</p>
+      <h2 className="text-2xl font-bold text-fp mb-1">Become a partner</h2>
+      <p className="text-sm text-gray-500 mb-6">Want to become a debt partner. Fill the form below and we will get in touch!</p>
 
       <div className="mb-4">
         <label className="block text-sm font-medium mb-1">Name*</label>
