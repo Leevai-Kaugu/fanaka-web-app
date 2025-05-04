@@ -13,11 +13,11 @@ export default function AboutPage() {
       <div className="bg-white relative grid w-full min-h-screen">
         {/* Background Image */}
         <Image
-          src='/Nav bg-01.svg'
+          src='/alt bg-01.png'
           alt="Background Image"
           width={1100}
           height={900}
-          className="object-cover col-start-1 row-start-1 w-full min-h-[80vh]"
+          className="object-cover col-start-1 row-start-1 w-full"
         />
 
         {/* Main Content */}

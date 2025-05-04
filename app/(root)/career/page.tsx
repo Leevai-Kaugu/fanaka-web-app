@@ -9,7 +9,7 @@ import background from '@/public/Nav bg-01.svg';
 import Image from 'next/image';
 import Scroll from '@/components/scroll/page';
 
-export default function Home(): JSX.Element {
+export default function Career(): JSX.Element {
   return (
     <Scroll>
       <div className="relative grid w-full h-full">
