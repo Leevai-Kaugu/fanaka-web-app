@@ -5,6 +5,7 @@ import "./globals.css";
 import Link from "next/link";
 
 
+
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -28,7 +29,7 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} antialiased`}
       >
-        <div className="h-fit flex flex-col justify-between bg-white">
+        <div className="w-[100%] h-fit flex flex-col justify-between bg-white">
           {children}
           <div className="bg-foreground text-background flex md:flex-row flex-col-reverse w-full justify-between items-center p-[20px] mt-[35vh]">
             <p className="w-full md:w-1/2 text-center md:text-start mt-10 md:mt-[0px]">Copyright © {currentYear} Fanaka Tech. All rights reserved.</p>

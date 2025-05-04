@@ -23,7 +23,7 @@ export default function Home() {
         <div className="flex w-full flex-col col-start-1 row-start-1 z-10 relative">
           <Nav />
 
-          <div className="flex flex-col my-0 md:my-[10%] md:ml-[5%] p-0 md:p-10">
+          <div className="flex flex-col my-0  md:ml-[5%] p-0 md:p-10">
             <Hero />
           </div>
 

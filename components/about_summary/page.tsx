@@ -2,7 +2,6 @@
 import React from 'react'
 import Image from 'next/image'
 import businessLdy from "@/public/portrait-person-owning-managing-their-own-business.jpg"
-import problemo from "@/public/problemo-01.svg"
 import Approach_summary from '../approach_toggle/page'
 
 export default function Summary(){
@@ -11,7 +10,7 @@ export default function Summary(){
           <div className="flex flex-col md:flex-row md:mt-[20vh] mt-[10vh] w-[100%] justify-around">
                 <div className="w-full flex justify-center md:w-[30%]">
                   <Image
-                    src={problemo}// public folder path
+                    src='/problemo-01.svg'// public folder path
                     alt="Fanaka client C.E.O Interacting with a client"
                     width={1100}
                     height={900}
