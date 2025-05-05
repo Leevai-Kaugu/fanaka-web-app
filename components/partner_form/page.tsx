@@ -2,6 +2,23 @@
 import { useState } from 'react';
 
 export default function PartnerApplicationForm() {
+  //Button logic
+  const [isHovered, setIsHovered] = useState(false);
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setCoords({ x, y });
+  };
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    
+  };
+  //End of button logic
   const [formData, setFormData] = useState({
     name: '',
     companyName: '',
@@ -23,7 +40,7 @@ export default function PartnerApplicationForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
+    <form onSubmit={handleSubmit} className="max-w-md lg:mx-0 mx-auto bg-white p-6 rounded-md shadow-md">
       <h2 className="text-2xl font-bold text-fp mb-1">Become a partner</h2>
       <p className="text-sm text-gray-500 mb-6">Want to become a debt partner. Fill the form below and we will get in touch!</p>
 
@@ -35,7 +52,7 @@ export default function PartnerApplicationForm() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full border border-gray-300 rounded-md px-3 py-2"
+          className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
         />
       </div>
 
@@ -47,7 +64,7 @@ export default function PartnerApplicationForm() {
           value={formData.companyName}
           onChange={handleChange}
           required
-          className="w-full border border-gray-300 rounded-md px-3 py-2"
+          className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
         />
       </div>
 
@@ -59,7 +76,7 @@ export default function PartnerApplicationForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full border border-gray-300 rounded-md px-3 py-2"
+          className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
         />
       </div>
 
@@ -71,7 +88,7 @@ export default function PartnerApplicationForm() {
           value={formData.phoneNumber}
           onChange={handleChange}
           required
-          className="w-full border border-gray-300 rounded-md px-3 py-2"
+          className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
         />
       </div>
 
@@ -85,7 +102,7 @@ export default function PartnerApplicationForm() {
           value={formData.expectedReturn}
           onChange={handleChange}
           required
-          className="w-full border border-gray-300 rounded-md px-3 py-2"
+          className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
         />
       </div>
 
@@ -99,15 +116,27 @@ export default function PartnerApplicationForm() {
           value={formData.loanAmount}
           onChange={handleChange}
           required
-          className="w-full border border-gray-300 rounded-md px-3 py-2"
+          className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
         />
       </div>
 
       <button
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onMouseMove={handleMouseMove}
         type="submit"
-        className="w-full bg-fp hover:bg-white text-white hover:text-fp cursor-pointer hover:border font-semibold py-2 px-4 rounded-md transition"
+        className="relative w-full bg-fp overflow-hidden border px-[30px] py-[10px] text-background cursor-pointer hover:text-foreground hover:border-fp transition"
       >
-        Next step
+      <span
+        className="absolute w-70 h-40 rounded-full bg-white opacity-50 pointer-events-none transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 group-hover:scale-150 z-0 ease-in"
+        style={{
+          left: coords.x,
+          top: coords.y,
+          transform: `translate(-50%, -50%) scale(${isHovered ? 4 : 0})`,
+          opacity: isHovered ? 1 : 0,
+        }}
+      />
+      <span className="relative z-10">Send</span>
       </button>
     </form>
   );

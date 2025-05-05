@@ -85,8 +85,25 @@ export default function Home() {
             </div>   
           </Scroll>                                                      
           <Scroll>
-            <div className="mt-[20vh]">
+            <div className="mt-[20vh] flex md:flex-row flex-col-reverse justify-center align-center gap-8">
               <PartnerForm/>
+              <div className='lg:w-[40%] w-full p-6 flex flex-col justify-center'>
+                <h1 className='lg:text-[2vw] md:text-[3vw] text-[4.5vw] text-fp'>Value Proposition for Key Stakeholders</h1>
+                <p>For our MSME clients, Fanaka offers a pathway to financial
+                empowerment through education, tailored financial
+                products, and risk management solutions. Our
+                stakeholders, including investors and partners, are
+                positioned to contribute to a scalable impact, driving
+                sustainable economic development and gaining potential
+                returns on investment.</p>
+                <Image
+                    src='/value-01.png'
+                    alt="value illustration"
+                    width={1100}
+                    height={900}
+                    className='sm:block hidden'
+                />
+              </div>
             </div>
           </Scroll>
         </div>

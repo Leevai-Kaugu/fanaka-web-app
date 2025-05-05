@@ -95,7 +95,6 @@ export default function TestimonialSlider() {
             layout="fill"
             objectFit="cover"
             priority
-            className="grayscale-100"
           />
         </div>
 

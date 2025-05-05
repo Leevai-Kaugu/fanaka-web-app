@@ -8,6 +8,7 @@ import oops from '@/public/no idea-01.svg';
 import background from '@/public/Nav bg-01.svg';
 import Image from 'next/image';
 import Scroll from '@/components/scroll/page';
+import Fe_testimonials from '@/components/fe_testimonials/page';
 
 export default function Career(): JSX.Element {
   return (
@@ -73,7 +74,7 @@ export default function Career(): JSX.Element {
             </div>
 
             {/* No Jobs Text */}
-            <div className="mt-10 w-full max-w-xl text-white">
+            <div className="mt-10 w-full max-w-xl text-fg">
               <p>
                 Ooops! Currently there are no vacant opportunities available. Don’t worry, we keep updating our social media pages when vacancies are available. Check us out!
               </p>
@@ -87,6 +88,9 @@ export default function Career(): JSX.Element {
             {/* Agent CTA */}
             <div className="mt-12">
               <AgentLink />
+            </div>
+            <div className='mt-30'>
+              <Fe_testimonials />
             </div>
           </div>
         </div>
