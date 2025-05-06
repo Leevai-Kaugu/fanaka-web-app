@@ -45,10 +45,10 @@ export default function AboutPage() {
               </div>
             </div>
           {/* Our Team Section */}
-          <section className="flex flex-col items-center mt-24 md:mt-32 px-6 md:px-16">
+          {/* <section className="flex flex-col items-center mt-24 md:mt-32 px-6 md:px-16">
             <h2 className="text-[6vw] md:text-[2rem] mb-10 text-fp font-semibold">Our Team</h2>
             <OurTeam />
-          </section>
+          </section> */}
         </div>
       </div>
     </Scroll>
