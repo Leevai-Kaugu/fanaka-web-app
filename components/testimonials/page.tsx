@@ -84,11 +84,11 @@ export default function TestimonialSlider() {
   const testimonial = testimonials[current];
 
   return (
-    <div className="md:w-full w-[80%] max-w-3xl mx-auto text-center py-12 relative">
-      <h2 className="text-3xl font-bold mb-10">TESTIMONIALS</h2>
+    <div className="md:w-full w-[80%] max-w-4xl mx-auto text-center py-12 relative">
+      <h2 className="text-3xl text-white font-semi mb-30">TESTIMONIALS</h2>
 
       <div className="relative bg-white shadow-lg rounded-lg p-10">
-        <div className="w-24 h-24 mx-auto -mt-20 relative rounded-full overflow-hidden border-4 border-white shadow-md">
+        <div className="w-35 h-35 mx-auto -mt-30 relative rounded-full overflow-hidden border-4 border-white shadow-md">
           <Image
             src={testimonial.avatar}
             alt={testimonial.name}
@@ -98,9 +98,9 @@ export default function TestimonialSlider() {
           />
         </div>
 
-        <h3 className="text-xl font-semibold mt-4">{testimonial.name}</h3>
+        <h3 className="text-xl text-fp font-bold mt-4">{testimonial.name}</h3>
+        <p className="text-fg text-sm font-semibold">{testimonial.business}</p>
         <p className="text-fg text-sm">{testimonial.location}</p>
-        <p className="text-fg text-sm">{testimonial.business}</p>
         <p className="mt-6 text-fg">{testimonial.text}</p>
 
         {/* Arrows */}

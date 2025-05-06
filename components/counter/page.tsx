@@ -1,32 +1,68 @@
 'use client';
 
-import { motion, useAnimationFrame } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
-export default function Counter({ from = 0, to = 1000, duration = 2 }) {
-  const [count, setCount] = useState(from);
+interface ScrollCounterProps {
+  target?: number;
+  duration?: number;
+}
+
+const ScrollCounter: React.FC<ScrollCounterProps> = ({ target = 100, duration = 2000 }) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [count, setCount] = useState<number>(0);
+  const observer = useRef<IntersectionObserver | null>(null);
+
+  const animateCounter = () => {
+    const startTime = performance.now();
+
+    const update = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = Math.floor(progress * target);
+      setCount(current);
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      }
+    };
+
+    requestAnimationFrame(update);
+  };
 
   useEffect(() => {
-    let start = 0;
-    const end = to;
-    const totalFrames = duration * 60;
-    const counter = setInterval(() => {
-      start++;
-      const progress = start / totalFrames;
-      const currentCount = Math.floor(from + (end - from) * progress);
-      setCount(currentCount);
+    if (observer.current) observer.current.disconnect();
 
-      if (progress >= 1) {
-        clearInterval(counter);
+    observer.current = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          animateCounter();
+        }
+      },
+      { threshold: 0.6 }
+    );
+
+    if (ref.current) {
+      observer.current.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current && observer.current) {
+        observer.current.unobserve(ref.current);
       }
-    }, 1000 / 60); // ~60fps
-
-    return () => clearInterval(counter);
-  }, [from, to, duration]);
+    };
+  }, [target, duration]);
 
   return (
-    <motion.div className="text-[7vw] md:text-[2.5vw] text-center">
-      {count}
-    </motion.div>
+    <div
+      ref={ref}
+      className="text-[7vw] md:text-[2.5vw] text-center"
+    >
+      {count}%
+    </div>
   );
-}
+};
+
+export default ScrollCounter;
+
+
+

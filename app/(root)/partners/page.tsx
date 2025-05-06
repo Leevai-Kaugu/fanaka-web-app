@@ -38,48 +38,48 @@ export default function Home() {
           <Scroll>
             <div className="flex h-auto justify-around mt-[10vh] flex-col items-center">
               <h1 className="uppercase md:text-[2vw] text-[5vw] text-fp">Our Partners</h1>
-              <div className="w-full bg-flp p-10 flex flex-col md:flex-row w-[100%] mt-[5vh] gap-5 items-center justify-center">
+              <div className="w-full md:w-[70%] bg-flp p-10 flex flex-col md:flex-row w-[100%] mt-[5vh] gap-5 items-center justify-center">
                 <Image
                     src='/LearnInk logo.png'
                     alt="Hero image"
                     width={1100}
                     height={900}
-                    className="col-start-1 row-start-1 w-[40%] md:w-[7%] cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+                    className="hover:grayscale-0 w-[35%] md:w-[30%] object-cover hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 <Image
                     src='/Bestlife-Logo.png'
                     alt="Hero image"
                     width={1100}
                     height={900}
-                    className="col-start-1 row-start-1 w-[40%] md:w-[7%] cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+                    className="hover:grayscale-0 w-[35%] md:w-[30%] object-cover hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 <Image
                     src='/cellulant.png'
                     alt="Hero image"
                     width={1100}
                     height={900}
-                    className="col-start-1 row-start-1 w-[40%] md:w-[7%] cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+                    className="hover:grayscale-0 w-[35%] md:w-[30%] object-cover hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 <Image
                     src='/axesfin.png'
                     alt="Hero image"
                     width={1100}
                     height={900}
-                    className="col-start-1 row-start-1 w-[40%] md:w-[7%] cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+                    className="hover:grayscale-0 w-[35%] md:w-[30%] object-cover hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 <Image
                     src='/digital africa.png'
                     alt="digital africa icon"
                     width={1100}
                     height={900}
-                    className="col-start-1 row-start-1 w-[40%] md:w-[7%] cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+                    className="hover:grayscale-0 w-[35%] md:w-[30%] object-cover hover:scale-105 transition-all duration-500 ease-in-out"
                 />
                 <Image
                     src='/Apex foundry.png'
                     alt="Hero image"
                     width={1100}
                     height={900}
-                    className="col-start-1 row-start-1 w-[40%] md:w-[7%] cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out"
+                    className="hover:grayscale-0 w-[35%] md:w-[30%] object-cover hover:scale-105 transition-all duration-500 ease-in-out"
                 />
               </div>
             </div>   
@@ -87,7 +87,7 @@ export default function Home() {
           <Scroll>
             <div className="mt-[20vh] flex md:flex-row flex-col-reverse justify-center align-center gap-8">
               <PartnerForm/>
-              <div className='lg:w-[40%] w-full p-6 flex flex-col justify-center'>
+              <div className='lg:w-[40%] w-full p-6 flex flex-col justify-center sm:block hidden'>
                 <h1 className='lg:text-[2vw] md:text-[3vw] text-[4.5vw] text-fp'>Value Proposition for Key Stakeholders</h1>
                 <p>For our MSME clients, Fanaka offers a pathway to financial
                 empowerment through education, tailored financial
@@ -101,7 +101,6 @@ export default function Home() {
                     alt="value illustration"
                     width={1100}
                     height={900}
-                    className='sm:block hidden'
                 />
               </div>
             </div>

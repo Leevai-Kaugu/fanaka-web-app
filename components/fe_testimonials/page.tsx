@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 
+
 const testimonials = [
   {
     icon: '/WhatsApp Image 2025-05-04 at 21.24.49_4fdd8860.jpg',
@@ -45,21 +46,30 @@ export default function Fe_testimonials() {
             <div
               key={index}
               className="bg-white rounded-xl p-6 mt-20 shadow-md hover:shadow-lg transition relative pt-14"
-            >
-              <div className="w-24 h-24 mx-auto -mt-20 relative rounded-full overflow-hidden border-4 border-white shadow-md">
+            > <div className='overflow-hidden'>
+                <Image
+                  src='/bg lines-01.png'
+                  alt='fancy artwork'
+                  layout="fill"
+                  objectFit="cover"
+                  priority
+                  className="transition-all duration-300 opacity-5 hover:opacity-20"
+                />
+            </div>
+              <div className="w-35 h-35 mx-auto -mt-35 relative rounded-full overflow-hidden border-4 border-white shadow-md">
                 <Image
                   src={testimonial.icon}
                   alt={testimonial.name}
                   layout="fill"
                   objectFit="cover"
                   priority
-                  className="grayscale-100"
+                  className="grayscale-100 transition-all duration-300 hover:scale-130"
                 />
               </div>
-              <h3 className="text-lg font-semibold text-center mt-2">
+              <h3 className="text-lg text-fp text-center mt-2">
                 {testimonial.name}
               </h3>
-              <p className="text-sm text-fg text-center mb-4">
+              <p className="text-sm text-fg font-semibold text-center mb-4">
                 {testimonial.position}
               </p>
               <p className="text-sm text-fg text-center mb-4">

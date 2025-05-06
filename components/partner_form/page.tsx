@@ -19,6 +19,7 @@ export default function PartnerApplicationForm() {
     
   };
   //End of button logic
+
   const [formData, setFormData] = useState({
     name: '',
     companyName: '',
@@ -35,17 +36,24 @@ export default function PartnerApplicationForm() {
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    // Handle form submission (e.g., POST to API)
+    const response = await fetch('/api/partner', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+    const result = await response.json();
+    alert(result.message);
+    // Handle form submission
     console.log('Form submitted:', formData);
   };
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md lg:mx-0 mx-auto bg-white p-6 rounded-md shadow-md">
       <h2 className="text-2xl font-bold text-fp mb-1">Become a partner</h2>
-      <p className="text-sm text-gray-500 mb-6">Want to become a debt partner. Fill the form below and we will get in touch!</p>
+      <p className="text-sm text-fg mb-6">Want to become a debt partner. Fill the form below and we will get in touch!</p>
 
       <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">Name*</label>
+        <label className="block text-sm font-medium mb-1">Your Name or Name of your Organisation*</label>
         <input
           name="name"
           type="text"
@@ -56,17 +64,6 @@ export default function PartnerApplicationForm() {
         />
       </div>
 
-      <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">Company name*</label>
-        <input
-          name="companyName"
-          type="text"
-          value={formData.companyName}
-          onChange={handleChange}
-          required
-          className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
-        />
-      </div>
 
       <div className="mb-4">
         <label className="block text-sm font-medium mb-1">Email*</label>
