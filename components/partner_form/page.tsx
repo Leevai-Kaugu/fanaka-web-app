@@ -53,7 +53,7 @@ export default function PartnerApplicationForm() {
       <p className="text-sm text-fg mb-6">Want to become a debt partner. Fill the form below and we will get in touch!</p>
 
       <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">Your Name or Name of your Organisation*</label>
+        <label className="block text-sm font-medium text-fg mb-1">Your Name or Name of your Organisation*</label>
         <input
           name="name"
           type="text"
@@ -66,7 +66,7 @@ export default function PartnerApplicationForm() {
 
 
       <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">Email*</label>
+        <label className="block text-sm font-medium text-fg mb-1">Email*</label>
         <input
           name="email"
           type="email"
@@ -78,7 +78,7 @@ export default function PartnerApplicationForm() {
       </div>
 
       <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">Phone number*</label>
+        <label className="block text-sm font-medium text-fg mb-1">Phone number*</label>
         <input
           name="phoneNumber"
           type="tel"
@@ -90,7 +90,7 @@ export default function PartnerApplicationForm() {
       </div>
 
       <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">Potential percent return per annum expectation*</label>
+        <label className="block text-sm font-medium text-fg mb-1">Potential percent return per annum expectation*</label>
         <input
           name="expectedReturn"
           type="number"
@@ -104,7 +104,7 @@ export default function PartnerApplicationForm() {
       </div>
 
       <div className="mb-6">
-        <label className="block text-sm font-medium mb-1">How much as debt would they lend*</label>
+        <label className="block text-sm font-medium text-fg mb-1">How much as debt would they lend*</label>
         <input
           name="loanAmount"
           type="number"

@@ -4,9 +4,9 @@ export default function handler(req: { method: string; body: { name: any; compan
       return res.status(405).json({ message: 'Method not allowed' });
     }
   
-    const { name, companyName, email, phone, expectedReturn, loanAmount } = req.body;
+    const { name, email, phone, expectedReturn, loanAmount } = req.body;
   
-    if (!name || !companyName || !email || !phone || !expectedReturn || !loanAmount) {
+    if (!name || !email || !phone || !expectedReturn || !loanAmount) {
       return res.status(400).json({ message: 'Missing required fields' });
     }
     if (typeof email !== 'string' || !email.includes('@')) {
@@ -21,7 +21,6 @@ export default function handler(req: { method: string; body: { name: any; compan
       // Example placeholder for saving to a DB or sending an email
       console.log('Received Partner Application:', {
         name,
-        companyName,
         email,
         phone,
         expectedReturn,

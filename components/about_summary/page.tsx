@@ -9,19 +9,19 @@ export default function Summary(){
     return(
         <Scroll>
           <div className='flex flex-col w-full items-center'>
-            <div className="flex flex-col md:flex-row md:mt-[30vh] mt-[10vh] w-[100%] justify-around">
+            <div className="flex flex-col md:flex-row md:mt-[30vh] mt-0 w-[100%] justify-around">
                 <div className="w-full flex justify-center md:w-[30%]">
                   <Image
                     src='/problemo-01.svg'// public folder path
                     alt="Fanaka client C.E.O Interacting with a client"
                     width={1100}
                     height={900}
-                    className="col-start-1 w-1/2 row-start-1 md:w-full h-full object-cover"
+                    className="col-start-1 w-[80%] row-start-1 md:w-full h-full object-cover mb-20"
                   ></Image>
                 </div>
-                <div className="w-full md:w-[50%] text-foreground">
+                <div className="w-full md:w-[50%] px-6 md:px-0 text-fg text-center md:text-start">
                   <div className="w-fit h-auto justify-around mb-[10vh]">
-                    <h2 className='font-bold text-[5vw] md:text-[2.5vw] text-fanakaPrimary mb-[2vh] md:mb-[0px]'>The Opportunity Statement</h2>
+                    <h2 className='font-bold text-[5vw] md:text-[2.5vw] text-fanakaPrimary mb-[2vh] md:mb-[0px] lg:text-start text-center'>The Opportunity Statement</h2>
                     <p className='text-fg'>In Zambia, 27.3% of adults own MSMEs; 98.8% are micro-sized; 95.6% operate informally and face immense barriers such as limited access to financial services, high borrowing costs, and low financial literacy. Women, representing over 60% of MSME owners, face disproportionate challenges in accessing capital and formalizing businesses</p>
                   </div>
                   <p className='font-bold text-fp text-[5vw] md:text-[2vw]'>Key Challenges</p>
