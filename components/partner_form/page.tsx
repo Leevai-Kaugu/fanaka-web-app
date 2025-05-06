@@ -122,7 +122,7 @@ export default function PartnerApplicationForm() {
         onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
         type="submit"
-        className="relative w-full bg-fp overflow-hidden border px-[30px] py-[10px] text-background cursor-pointer hover:text-foreground hover:border-fp transition"
+        className="relative w-full bg-fp overflow-hidden border-0 px-[30px] py-[10px] text-background cursor-pointer hover:text-foreground hover:border-fp transition"
       >
       <span
         className="absolute w-70 h-40 rounded-full bg-white opacity-50 pointer-events-none transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 group-hover:scale-150 z-0 ease-in"
