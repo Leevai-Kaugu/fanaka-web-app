@@ -28,15 +28,11 @@ export default function Home() {
           </div>
 
           <div className="flex md:w-full justify-around mt-[40vh] md:mt-0">
-            <Scroll>
-              <Summary />
-            </Scroll>
+            <Summary />
           </div>
 
           <div className="mt-[20vh]">
-            <Scroll>
-              <Metrics />
-            </Scroll>
+            <Metrics />
           </div>
         </div>
       </div>

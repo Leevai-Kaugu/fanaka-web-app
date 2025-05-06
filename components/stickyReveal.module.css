@@ -1,0 +1,16 @@
+.stickyWrapper {
+    position: relative;
+    height: 20vh; /* makes it scrollable */
+  }
+  
+  .stickyInner {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.05s linear;
+    will-change: transform;
+  }
+  

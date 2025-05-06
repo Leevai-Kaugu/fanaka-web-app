@@ -1,29 +1,45 @@
 'use client';
-import React from 'react';
 
-import { motion, useAnimation, useInView } from 'framer-motion';
-import { useEffect, useRef, ReactNode } from 'react';
+import { useRef, useEffect, useState } from 'react';
+import styles from '@/components/ScrollFadeIn.module.css'
 
-export default function Scroll({ children }: { children: ReactNode }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-  const controls = useAnimation();
+interface ScrollFadeInProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const ScrollFadeIn: React.FC<ScrollFadeInProps> = ({ children, className = '' }) => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (inView) {
-      controls.start('visible');
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    const current = ref.current;
+    if (current) {
+      observer.observe(current);
     }
-  }, [controls, inView]);
+
+    return () => {
+      if (current) {
+        observer.unobserve(current);
+      }
+    };
+  }, []);
 
   return (
-    <motion.div
-  ref={ref}
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.6 }}
->
-  {children}
-</motion.div>
+    <div
+      ref={ref}
+      className={`${styles.fadeInSection} ${isVisible ? styles.visible : ''} ${className}`}
+    >
+      {children}
+    </div>
   );
-}
+};
+
+export default ScrollFadeIn;
