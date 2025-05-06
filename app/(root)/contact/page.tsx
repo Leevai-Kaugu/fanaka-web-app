@@ -35,7 +35,7 @@ export default function Home() {
                                         <FaPhoneAlt className='fill-fp'/>
                                         <p>Contact</p>
                                     </div>
-                                    <p className='text-white'>+260 772829799</p>
+                                    <p className='text-white'>+260 776478984</p>
                                 </div>
                                 <div>
                                     <div className='flex gap-3 items-center mt-[5vh] text-fp md:justify-start justify-center'>
@@ -49,7 +49,8 @@ export default function Home() {
                                         <FaLocationDot className='fill-fp'/>
                                         <p>Location</p>
                                     </div>
-                                    <p className='text-white'>Arcades, Office No_203 2nd Floor, Blue House Lusaka, Zambia </p>
+                                    <p className='text-white'>Office 904, 9th Floor, Sunshare Tower, Stand No.
+                                    LN_15584/1, Katima Mulilo Road, Lusaka, Zambia </p>
                                 </div>
                                 <div>
                                     <div className='flex gap-3 items-center mt-[5vh] text-fp md:justify-start justify-center'>
