@@ -46,16 +46,7 @@ export default function Fe_testimonials() {
             <div
               key={index}
               className="bg-white rounded-xl p-6 mt-20 shadow-md hover:shadow-lg transition relative pt-14"
-            > <div className='overflow-hidden'>
-                <Image
-                  src='/bg lines-01.png'
-                  alt='fancy artwork'
-                  layout="fill"
-                  objectFit="cover"
-                  priority
-                  className="transition-all duration-300 opacity-5 hover:opacity-20"
-                />
-            </div>
+            > 
               <div className="w-35 h-35 mx-auto -mt-35 relative rounded-full overflow-hidden border-4 border-white shadow-md">
                 <Image
                   src={testimonial.icon}
