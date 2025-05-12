@@ -27,7 +27,7 @@ export default function Summary(){
             <p className='font-bold text-fp text-[5vw] md:text-[2vw]'>Key Challenges</p>
             <ul className='text-fg'>
               <li>Only 6.5% of MSMEs have bank accounts, of whom 7.3% applied for loans (2017–22).</li>
-              <li>69% rely on personal funds due to barriers like high-interest rates (35%–45 % interest rates with 25%+ penalties) and lack of collateral.</li>
+              <li>69% rely on personal funds due to barriers like high-interest rates and lack of collateral.</li>
               <li>48% of MSME owners have only secondary education; low financial record‑keeping (28%)</li>
               <li>46% adversely affected by recent economic shocks, including the COVID-19 pandemic.</li>
             </ul>
