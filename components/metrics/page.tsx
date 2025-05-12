@@ -24,12 +24,12 @@ export default function Metrics() {
                         <p className="font-bold mb-[20px] md:text-white text-flp">N.o of MSMEs onboarded/Served</p>
                         <div className="flex h-fit w-full flex-col md:flex-row items-center md:items-start justify-center md:justify-start">
                             <div className="flex gap-2 md:gap-[0px] md:flex-col md:items-start items-center md:border-l-2 md:pl-4 md:pr-4 justify-around ">
-                                <Counter target={86.4} duration={1200} />
-                                <p>women-led enterprises</p>
+                                <Counter target={92} duration={1200} />
+                                <p>Returning clients</p>
                             </div>
                             <div className="flex md:flex-col gap-2 md:gap-[0px] md:items-start items-center md:border-l-2 md:pl-4 ">
-                                <Counter target={67} duration={1200} />
-                                <p>youth-led enterprises</p>
+                                <Counter target={86} duration={1200} />
+                                <p>Satisfied clients</p>
                             </div>
                         </div>
                 </div>
