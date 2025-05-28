@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import SuccessModal from '@/components/successModal/page';
 
 export default function PartnerApplicationForm() {
   //Button logic
@@ -20,32 +21,33 @@ export default function PartnerApplicationForm() {
   };
   //End of button logic
 
-  const [formData, setFormData] = useState({
-    name: '',
-    companyName: '',
-    email: '',
-    phoneNumber: '',
-    expectedReturn: '',
-    loanAmount: '',
-  });
-
-  const handleChange = (e: { target: { name: any; value: any; }; }) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    const response = await fetch('/api/partner', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    });
-    const result = await response.json();
-    alert(result.message);
-    // Handle form submission
-    console.log('Form submitted:', formData);
-  };
+  const [form, setForm] = useState({
+          name: '',
+          email: '',
+          phoneNumber: '',
+          expectedReturn: '',
+          loanAmount: ''
+      });
+      const [showModal, setShowModal] = useState(false);
+      const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+          e.preventDefault();
+          try {
+              const response = await fetch('/api/send-email', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(form),
+              });
+  
+              const data = await response.json();
+              setShowModal(true);
+              setForm({ name: '', email: '', phoneNumber: '', expectedReturn: '', loanAmount: '' }); // Reset form
+          } catch (error) {
+              console.error('Error sending email:', error);
+              alert('Failed to send message. Please try again later.');
+          }
+      };
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md lg:mx-0 mx-auto bg-white p-6 rounded-md shadow-md">
@@ -57,8 +59,7 @@ export default function PartnerApplicationForm() {
         <input
           name="name"
           type="text"
-          value={formData.name}
-          onChange={handleChange}
+          onChange={e => setForm({ ...form, name: e.target.value })}
           required
           className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
         />
@@ -70,8 +71,7 @@ export default function PartnerApplicationForm() {
         <input
           name="email"
           type="email"
-          value={formData.email}
-          onChange={handleChange}
+          onChange={e => setForm({ ...form, email: e.target.value })}
           required
           className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
         />
@@ -82,8 +82,7 @@ export default function PartnerApplicationForm() {
         <input
           name="phoneNumber"
           type="tel"
-          value={formData.phoneNumber}
-          onChange={handleChange}
+          onChange={e => setForm({ ...form, phoneNumber: e.target.value })}
           required
           className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
         />
@@ -96,8 +95,7 @@ export default function PartnerApplicationForm() {
           type="number"
           min="0"
           step="0.01"
-          value={formData.expectedReturn}
-          onChange={handleChange}
+          onChange={e => setForm({ ...form, expectedReturn: e.target.value })}
           required
           className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
         />
@@ -110,8 +108,7 @@ export default function PartnerApplicationForm() {
           type="number"
           min="0"
           step="100"
-          value={formData.loanAmount}
-          onChange={handleChange}
+          onChange={e => setForm({ ...form, loanAmount: e.target.value })}
           required
           className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
         />
@@ -135,6 +132,7 @@ export default function PartnerApplicationForm() {
       />
       <span className="relative z-10">Send</span>
       </button>
+      <SuccessModal isOpen={showModal} onClose={() => setShowModal(false)} />
     </form>
   );
 }

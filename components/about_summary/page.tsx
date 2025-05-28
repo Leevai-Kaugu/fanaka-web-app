@@ -4,6 +4,7 @@ import Image from 'next/image'
 import businessLdy from "@/public/portrait-person-owning-managing-their-own-business.jpg"
 import Approach_summary from '../approach_toggle/page'
 import Scroll from '../scroll/page'
+import Techstack from '@/components/tech-stack/page'
 
 export default function Summary(){
     return(
@@ -33,23 +34,28 @@ export default function Summary(){
             </ul>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row mt-[20vh] w-[100%] justify-around items-center">
-          <Image
-            src={businessLdy}// public folder path
-            alt="Fanaka client C.E.O Interacting with a client"
-            width={1100}
-            height={900}
-            className="col-start-1 row-start-1 w-full md:w-[50%] h-[70%] object-cover"
-          ></Image>
-          <div className='w-full md:w-[40%]'> 
-          <div className='text-fp font-bold text-center mt-[10vh] md:mt-[0vh]'>
-            <p className='text-[5vw] md:text-[2.5vw]'>Our Approach</p>
-            <p>Community Led Financial Inclusion</p>
+        <div>
+          <Techstack />
+        </div>
+        <Scroll>
+          <div className="flex flex-col md:flex-row mt-[20vh] w-[100%] justify-around items-center">
+            <Image
+              src={businessLdy}// public folder path
+              alt="Fanaka client C.E.O Interacting with a client"
+              width={1100}
+              height={900}
+              className="col-start-1 row-start-1 w-full md:w-[50%] h-[70%] object-cover"
+            ></Image>
+            <div className='w-full md:w-[40%]'> 
+              <div className='text-fp font-bold text-center mt-[10vh] md:mt-[0vh]'>
+                <p className='text-[5vw] md:text-[2.5vw]'>Our Approach</p>
+                <p>Community Led Financial Inclusion</p>
+              </div>
+              <Approach_summary/>
+            </div>
           </div>
-          <Approach_summary/>
-        </div>
-      </div>
-        </div>
+        </Scroll>
+     </div>
       </Scroll>
     )
 }

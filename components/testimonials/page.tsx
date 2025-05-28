@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Image from 'next/image';
+import Scroll from '../scroll/page'
 
 const testimonials = [
   {
@@ -84,7 +85,8 @@ export default function TestimonialSlider() {
   const testimonial = testimonials[current];
 
   return (
-    <div className="md:w-full w-[80%] max-w-4xl mx-auto text-center py-12 relative">
+    <Scroll>
+      <div className="md:w-full w-[80%] max-w-4xl mx-auto text-center py-12 relative">
       <h2 className="text-3xl text-white font-semi mb-30">TESTIMONIALS</h2>
 
       <div className="relative bg-white shadow-lg rounded-lg p-10">
@@ -118,5 +120,5 @@ export default function TestimonialSlider() {
         </button>
       </div>
     </div>
-  );
+    </Scroll>  );
 }
