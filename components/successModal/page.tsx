@@ -6,8 +6,15 @@ interface SuccessModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
+const handleClose = () => {
+  setTimeout(() => {
+    window.location.reload();
+  });
+};
+
 
 const SuccessModal: React.FC<SuccessModalProps> = ({ isOpen, onClose }) => {
+    
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add('overflow-hidden');
@@ -30,7 +37,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({ isOpen, onClose }) => {
         <h2 className="text-xl font-semibold text-green-600 mb-4">Message Sent!</h2>
         <p className="text-gray-600 mb-4">Your message has been successfully sent. We'll be in touch soon.</p>
         <button
-          onClick={onClose}
+          onClick={onClose || handleClose}
           className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
         >
           Close

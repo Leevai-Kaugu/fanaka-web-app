@@ -3,136 +3,223 @@ import { useState } from 'react';
 import SuccessModal from '@/components/successModal/page';
 
 export default function PartnerApplicationForm() {
-  //Button logic
   const [isHovered, setIsHovered] = useState(false);
   const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    setCoords({ x, y });
-  };
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-    
-  };
-  //End of button logic
+  const [showModal, setShowModal] = useState(false);
 
   const [form, setForm] = useState({
-          name: '',
-          email: '',
-          phoneNumber: '',
-          expectedReturn: '',
-          loanAmount: ''
+    name: '',
+    email: '',
+    phoneNumber: '',
+    expectedReturn: '',
+    loanAmount: '',
+  });
+
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    phoneNumber: '',
+    expectedReturn: '',
+    loanAmount: '',
+  });
+
+  const validateEmail = (email: string) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const validate = () => {
+    const newErrors = {
+      name: form.name.trim() === '' ? 'Name is required.' : '',
+      email: form.email.trim() === ''
+        ? 'Email is required.'
+        : !validateEmail(form.email)
+        ? 'Invalid email format.'
+        : '',
+      phoneNumber: form.phoneNumber.trim() === ''
+        ? 'Phone number is required.'
+        : isNaN(Number(form.phoneNumber))
+        ? 'Phone number must be numeric.'
+        : '',
+      expectedReturn: form.expectedReturn.trim() === ''
+        ? 'Expected return is required.'
+        : isNaN(Number(form.expectedReturn))
+        ? 'Expected return must be numeric.'
+        : parseFloat(form.expectedReturn) > 100
+        ? 'Expected return cannot exceed 100%.'
+        : '',
+      loanAmount: form.loanAmount.trim() === ''
+        ? 'Loan amount is required.'
+        : isNaN(Number(form.loanAmount.replace(/,/g, '')))
+        ? 'Loan amount must be numeric.'
+        : '',
+    };
+
+    setErrors(newErrors);
+    return Object.values(newErrors).every((msg) => msg === '');
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    const formattedForm = {
+      ...form,
+      loanAmount: Number(form.loanAmount.replace(/,/g, '')).toLocaleString('en-US'),
+      expectedReturn: `${form.expectedReturn}%`,
+    };
+
+    try {
+      const response = await fetch('/api/partner', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formattedForm),
       });
-      const [showModal, setShowModal] = useState(false);
-      const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-          e.preventDefault();
-          try {
-              const response = await fetch('/api/send-email', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(form),
-              });
-  
-              const data = await response.json();
-              setShowModal(true);
-              setForm({ name: '', email: '', phoneNumber: '', expectedReturn: '', loanAmount: '' }); // Reset form
-          } catch (error) {
-              console.error('Error sending email:', error);
-              alert('Failed to send message. Please try again later.');
-          }
-      };
+
+      if (!response.ok) throw new Error('Failed to send form');
+
+      setForm({
+        name: '',
+        email: '',
+        phoneNumber: '',
+        expectedReturn: '',
+        loanAmount: '',
+      });
+
+      setShowModal(true);
+    } catch (error) {
+      console.error('Submission error:', error);
+    }
+  };
+
+  const handleInputChange = (field: keyof typeof form, value: string) => {
+    if (['phoneNumber', 'loanAmount', 'expectedReturn'].includes(field)) {
+      value = value.replace(/[^\d.]/g, '');
+    }
+
+    setForm({ ...form, [field]: value });
+    if (errors[field]) {
+      setErrors({ ...errors, [field]: '' });
+    }
+  };
+
+  const inputClass = (field: keyof typeof form) =>
+    `w-full border-b-2 px-2 py-2 h-11 bg-white focus:bg-green-100 outline-none transition-all duration-300 ${
+      errors[field] ? 'border-red-500' : 'border-fg focus:border-fp'
+    }`;
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
+    window.location.reload();
+  };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md lg:mx-0 mx-auto bg-white p-6 rounded-md shadow-md">
-      <h2 className="text-2xl font-bold text-fp mb-1">Become a partner</h2>
-      <p className="text-sm text-fg mb-6">Want to become a debt partner. Fill the form below and we will get in touch!</p>
+    <>
+      <form onSubmit={handleSubmit} className="lg:mx-0 mx-auto bg-white p-6 rounded-md shadow-md">
+        <h2 className="text-2xl font-bold text-fp mb-1">Become a partner</h2>
+        <p className="text-sm text-fg mb-6">Want to become a debt partner? Fill the form below and we’ll get in touch!</p>
 
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-fg mb-1">Your Name or Name of your Organisation*</label>
-        <input
-          name="name"
-          type="text"
-          onChange={e => setForm({ ...form, name: e.target.value })}
-          required
-          className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
-        />
-      </div>
+        {[{ label: 'Your Name or Organisation*', name: 'name', type: 'text' },
+          { label: 'Email*', name: 'email', type: 'email' },
+          { label: 'Phone number*', name: 'phoneNumber', type: 'tel' }].map((field) => (
+          <div className="mb-4" key={field.name}>
+            <label className="block text-sm font-medium text-fg mb-1">{field.label}</label>
+            <input
+              type={field.type}
+              name={field.name}
+              value={form[field.name as keyof typeof form]}
+              onChange={(e) => handleInputChange(field.name as keyof typeof form, e.target.value)}
+              className={inputClass(field.name as keyof typeof form)}
+            />
+            {errors[field.name as keyof typeof form] && (
+              <p className="text-red-500 text-sm mt-1">{errors[field.name as keyof typeof form]}</p>
+            )}
+          </div>
+        ))}
 
+        <div className="mb-4 relative">
+          <label className="block text-sm font-medium text-fg mb-1">
+            Potential percent return per annum expectation*
+          </label>
+          <div className="relative">
+            <input
+              name="expectedReturn"
+              type="text"
+              inputMode="decimal"
+              value={form.expectedReturn}
+              onChange={(e) => handleInputChange('expectedReturn', e.target.value)}
+              className={`${inputClass('expectedReturn')} pr-6`}
+            />
+            <span className="absolute right-2 top-2 text-fg pointer-events-none">%</span>
+          </div>
+          {errors.expectedReturn && (
+            <p className="text-red-500 text-sm mt-1">{errors.expectedReturn}</p>
+          )}
+        </div>
 
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-fg mb-1">Email*</label>
-        <input
-          name="email"
-          type="email"
-          onChange={e => setForm({ ...form, email: e.target.value })}
-          required
-          className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
-        />
-      </div>
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-fg mb-1">
+            How much are you lending as debt (USD)*
+          </label>
+          <input
+            name="loanAmount"
+            type="text"
+            inputMode="numeric"
+            value={
+              form.loanAmount
+                ? Number(form.loanAmount.replace(/,/g, '')).toLocaleString('en-US')
+                : ''
+            }
+            onChange={(e) => {
+              const rawValue = e.target.value.replace(/,/g, '');
+              if (!isNaN(Number(rawValue))) {
+                handleInputChange('loanAmount', rawValue);
+              }
+            }}
+            className={inputClass('loanAmount')}
+          />
+          {errors.loanAmount && (
+            <p className="text-red-500 text-sm mt-1">{errors.loanAmount}</p>
+          )}
+        </div>
 
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-fg mb-1">Phone number*</label>
-        <input
-          name="phoneNumber"
-          type="tel"
-          onChange={e => setForm({ ...form, phoneNumber: e.target.value })}
-          required
-          className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
-        />
-      </div>
+        <button
+          type="submit"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onMouseMove={handleMouseMove}
+          className="relative w-full bg-fp overflow-hidden border-0 px-[30px] py-[10px] text-background cursor-pointer hover:text-foreground hover:border-fp transition"
+        >
+          <span
+            className="absolute w-70 h-40 rounded-full bg-white opacity-50 pointer-events-none transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 group-hover:scale-150 z-0 ease-in"
+            style={{
+              left: coords.x,
+              top: coords.y,
+              transform: `translate(-50%, -50%) scale(${isHovered ? 4 : 0})`,
+              opacity: isHovered ? 1 : 0,
+            }}
+          />
+          <span className="relative z-10">Send</span>
+        </button>
 
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-fg mb-1">Potential percent return per annum expectation*</label>
-        <input
-          name="expectedReturn"
-          type="number"
-          min="0"
-          step="0.01"
-          onChange={e => setForm({ ...form, expectedReturn: e.target.value })}
-          required
-          className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
-        />
-      </div>
+        <SuccessModal isOpen={showModal} onClose={handleModalClose} />
+      </form>
 
-      <div className="mb-6">
-        <label className="block text-sm font-medium text-fg mb-1">How much as debt would they lend*</label>
-        <input
-          name="loanAmount"
-          type="number"
-          min="0"
-          step="100"
-          onChange={e => setForm({ ...form, loanAmount: e.target.value })}
-          required
-          className="w-full border-b-1 border-fg outline-none focus:border-fp px-2 bg-white py-2 transition-all duration-300"
-        />
-      </div>
-
-      <button
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onMouseMove={handleMouseMove}
-        type="submit"
-        className="relative w-full bg-fp overflow-hidden border-0 px-[30px] py-[10px] text-background cursor-pointer hover:text-foreground hover:border-fp transition"
-      >
-      <span
-        className="absolute w-70 h-40 rounded-full bg-white opacity-50 pointer-events-none transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 group-hover:scale-150 z-0 ease-in"
-        style={{
-          left: coords.x,
-          top: coords.y,
-          transform: `translate(-50%, -50%) scale(${isHovered ? 4 : 0})`,
-          opacity: isHovered ? 1 : 0,
-        }}
-      />
-      <span className="relative z-10">Send</span>
-      </button>
-      <SuccessModal isOpen={showModal} onClose={() => setShowModal(false)} />
-    </form>
+      {/* Autofill Fix Styles */}
+      <style jsx>{`
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+          transition: background-color 9999s ease-in-out 0s;
+          -webkit-text-fill-color: #000 !important;
+          box-shadow: 0 0 0px 1000px white inset !important;
+          background-color: white !important;
+        }
+      `}</style>
+    </>
   );
 }

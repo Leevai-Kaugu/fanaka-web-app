@@ -38,7 +38,7 @@ export default function Home() {
           <Scroll>
             <div className="flex h-auto justify-around mt-[10vh] flex-col items-center">
               <h1 className="uppercase md:text-[2vw] text-[5vw] text-fp">Our Partners</h1>
-              <div className="w-full md:w-[70%] bg-flp p-10 flex flex-col md:flex-row w-[100%] mt-[5vh] gap-5 items-center justify-center">
+              <div className="w-full lg:w-[70%] bg-flp p-10 flex flex-col md:flex-row w-[100%] mt-[5vh] gap-5 items-center justify-center">
                 <Image
                     src='/LearnInk logo.png'
                     alt="Hero image"
@@ -85,7 +85,7 @@ export default function Home() {
             </div>   
           </Scroll>                                                      
           <Scroll>
-            <div className="mt-[20vh] flex md:flex-row flex-col-reverse justify-center align-center gap-8">
+            <div className="mt-[20vh] flex lg:flex-row flex-col-reverse justify-center align-center gap-8">
               <PartnerForm/>
               <div className='lg:w-[40%] w-full p-6 flex flex-col justify-center sm:block hidden'>
                 <h1 className='lg:text-[2vw] md:text-[3vw] text-[4.5vw] text-fp'>Value Proposition for Key Stakeholders</h1>

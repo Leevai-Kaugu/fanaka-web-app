@@ -18,7 +18,7 @@ export async function POST(req: Request) {
     
     await transporter.sendMail({
       from: process.env.GMAIL_USER,
-      to: 'levi@fanakatech.com',
+      to: 'info@fanakatech.com',
       subject: 'New Message from Fanaka Website',
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
     });
