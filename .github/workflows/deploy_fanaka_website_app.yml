@@ -1,0 +1,73 @@
+name: Deploy Fanaka App to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DEPLOY_DIR: /var/www/fanakatech.com
+  BUILD_DIR: dist
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build React application
+
+        run: npm run build
+
+      - name: Ensure deployment directory exists on EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            mkdir -p ${{ env.DEPLOY_DIR }}
+      - name: Clean deployment directory on EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            rm -rf ${{ env.DEPLOY_DIR }}/*
+      - name: Copy frontend files to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "dist/*"
+          target: "${{ env.DEPLOY_DIR }}" # Corrected target to use the DEPLOY_DIR env var
+          strip_components: 1
+
+      - name: Execute post-deployment commands on EC2 (Optional)
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            echo "React app deployed to ${{ env.DEPLOY_DIR }}"
+            sudo systemctl reload nginx
+            echo "Post-deployment commands completed."
+
+      - name: Verify deployment on EC2
+        run: |
+          echo "Verifying deployment..."
+          curl -I http://${{ secrets.EC2_HOST }}
