@@ -68,7 +68,16 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "public/" # This copies your static assets
+          source: "public/"
+          target: "${{ env.DEPLOY_DIR }}"
+
+      - name: Copy next.config.ts to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "next.config.ts"
           target: "${{ env.DEPLOY_DIR }}"
 
       - name: Copy package.json to EC2
