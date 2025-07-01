@@ -61,7 +61,15 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "${{ env.BUILD_DIR }}/"
           target: "${{ env.DEPLOY_DIR }}"
-          strip_components: 1
+
+      - name: Copy public directory to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "public/" # This copies your static assets
+          target: "${{ env.DEPLOY_DIR }}"
 
       - name: Copy package.json to EC2
         uses: appleboy/scp-action@master
