@@ -41,9 +41,9 @@ const FeaturesSection: React.FC = () => {
     <Scroll >
       <section className="py-16 text-center">
       <div className="container mx-auto px-4">
-        <h5 className="text-fanakaGrey text-sm font-semibold mb-2">Solution</h5>
+        <h5 className="text-fg text-sm font-semibold mb-2">Solution</h5>
         <h2 className="text-3xl font-bold text-fanakaPrimary mb-4">Our Awesome Tech Stack</h2>
-        <p className="max-w-2xl mx-auto text-fanakaGray mb-12">
+        <p className="max-w-2xl mx-auto text-fg mb-12">
           Our Fanaka digital platform is an integrated suite of proprietary technologies designed to power inclusive finance for MSMEs. It includes
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
@@ -52,8 +52,8 @@ const FeaturesSection: React.FC = () => {
               <div className="mb-4 h-20 w-20 rounded-lg flex items-center justify-center">
                 <img src={feature.logoSrc} alt={`${feature.title} logo`} className="h-full w-full object-contain" />
               </div>
-              <h4 className="font-semibold text-lg mb-2">{feature.title}</h4>     
-              <p className="text-fanakaGray text-sm">{feature.description}</p>
+              <h4 className="font-semibold text-fg text-lg mb-2">{feature.title}</h4>     
+              <p className="text-fg text-sm">{feature.description}</p>
               {index < features.length - 1 && (
                 <div className="hidden lg:block absolute top-[40px] right-[-60px] w-[80px] border-t-2 border-dashed border-green-400" />
               )}

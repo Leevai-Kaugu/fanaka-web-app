@@ -41,7 +41,7 @@ export default function Navbar() {
       </button>
 
       {/* Desktop Menu */}
-    <ul className='hidden md:flex w-[50%] text-background justify-around items-center text-[1.3vw]'>
+    <ul className='hidden md:flex w-[50%] text-foreground dark:text-background justify-around items-center text-lg'>
         <div className='flex w-[60%] justify-between'>
             <li className="group relative">
               <Link href="/" className='py-[100%] hover:text-fp transition-all duration-300'>Home</Link>

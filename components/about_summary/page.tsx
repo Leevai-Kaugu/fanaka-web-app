@@ -22,14 +22,14 @@ export default function Summary(){
             </div>
             <div className="w-full md:w-[50%] px-6 md:px-0 text-fg text-center md:text-start">
             <div className="w-fit h-auto justify-around mb-[10vh]">
-              <h2 className='font-bold text-[5vw] md:text-[2.5vw] text-fanakaPrimary mb-[2vh] md:mb-[0px] lg:text-start text-center'>The Opportunity Statement</h2>
-              <p className='text-fg'>In Zambia, 27.3% of adults own MSMEs; 98.8% are micro-sized; 95.6% operate informally and face immense barriers such as limited access to financial services, high borrowing costs, and low financial literacy. Women, representing over 60% of MSME owners, face disproportionate challenges in accessing capital and formalizing businesses</p>
+              <h2 className='font-bold text-3xl text-fanakaPrimary mb-[2vh] md:mb-[0px] lg:text-start text-center'>The Opportunity Statement</h2>
+              <p className='text-fg text-2sm'>In Zambia, 27.3% of adults own MSMEs; 98.8% are micro-sized; 95.6% operate informally and face immense barriers such as limited access to financial services, high borrowing costs, and low financial literacy. Women, representing over 60% of MSME owners, face disproportionate challenges in accessing capital and formalizing businesses</p>
             </div>
-            <p className='font-bold text-fp text-[5vw] md:text-[2vw]'>Key Challenges</p>
-            <ul className='text-fg'>
+            <p className='font-bold text-fp text-3xl'>Key Challenges</p>
+            <ul className='text-fg text-2sm'>
               <li>Only 6.5% of MSMEs have bank accounts, of whom 7.3% applied for loans (2017–22).</li>
               <li>69% rely on personal funds due to barriers like high-interest rates and lack of collateral.</li>
-              <li>48% of MSME owners have only secondary education; low financial record‑keeping (28%)</li>
+              <li>48% of MSME owners have only secondary education; low financial record‑keeping (28%).</li>
               <li>46% adversely affected by recent economic shocks, including the COVID-19 pandemic.</li>
             </ul>
           </div>

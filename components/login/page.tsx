@@ -28,11 +28,11 @@ export default function     Login() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
-      className="relative overflow-hidden border px-[30px] py-[10px] text-background cursor-pointer  hover:text-foreground hover:border-background transition"
+      className="relative overflow-hidden border px-[30px] py-[10px] text-foreground dark:text-background cursor-pointer hover:dark:text-fp hover:text-fp hover:border-foreground hover:dark:border-background transition"
       
     >
       <span
-        className="absolute w-40 h-40 rounded-full bg-background opacity-50 pointer-events-none transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 group-hover:scale-150 z-0 ease-in"
+        className="absolute w-40 h-40 rounded-full bg-foreground dark:bg-background opacity-50 pointer-events-none transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 group-hover:scale-150 z-0 ease-in"
         style={{
           left: coords.x,
           top: coords.y,
